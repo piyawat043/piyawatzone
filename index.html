@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative Assistant World</title>
+  <title>Piyawat Zone</title>
   <style>
     html, body {
       margin: 0;
@@ -226,6 +226,92 @@
   display: inline-block;
 }
 
+.custom-buttons {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 28px 0 18px 0;
+  flex-wrap: wrap;
+}
+.custom-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+  min-width: 90px;
+}
+.custom-btn img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 24px;
+  box-shadow: 0 4px 28px 0 rgba(40,180,255,0.25);
+  background: #111a;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border: 3px solid #1fa8ff;
+}
+.custom-btn:hover img, .custom-btn:focus img {
+  transform: scale(1.07) rotate(-3deg);
+  box-shadow: 0 8px 44px 0 #16d4ff80;
+  border-color: #fff;
+}
+.custom-btn-label {
+  margin-top: 8px;
+  font-size: 1.02rem;
+  color: #1fa8ff;
+  text-align: center;
+  letter-spacing: 0.01em;
+  background: #071223CC;
+  padding: 3px 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .custom-btn img {
+    width: 88px;
+    height: 88px;
+    border-radius: 18px;
+  }
+  .custom-btn-group {
+    width: 100px;
+  }
+  .custom-btn-label {
+    font-size: 0.98rem;
+    padding: 2px 4px;
+  }
+}
+
+.footer {
+  text-align: center;
+  color: #eee;
+  font-size: 1rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  width: 100%;
+  background: none;
+}
+.footer-logo {
+  margin-top: 18px;
+  max-width: 340px;
+  width: 75vw;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 2px 14px #001244cc);
+}
+@media (max-width: 700px) {
+  .footer {
+    font-size: 0.98rem;
+    padding: 1.5rem 0.3rem 1.2rem 0.3rem;
+  }
+  .footer-logo {
+    max-width: 90vw;
+    margin-top: 10px;
+  }
+}
+
   </style>
   <script>
     function enterSite() {
@@ -280,6 +366,22 @@
     แต่ถ้าดูแบบโฟกัส มันไม่ได้แค่ได้ความรู้<br>
     แต่มันซึมซับเข้าไปข้างใน…จนไม่มีวันลืม”
   </blockquote>
+  
+<div class="custom-buttons">
+  <div class="custom-btn-group">
+    <a href="https://piyawat043.github.io/piyawatzone/" target="_blank" class="custom-btn">
+      <img src="piyawatmic.png" alt="Piyawat Zone" />
+    </a>
+    <div class="custom-btn-label">ไปที่โปรไฟล์ผู้สร้าง</div>
+  </div>
+  <div class="custom-btn-group">
+    <a href="https://piyawat043.github.io/MakerCustoms-CNC-OS/" target="_blank" class="custom-btn">
+      <img src="iMakv5.png" alt="MakerCustoms CNC OS" />
+    </a>
+    <div class="custom-btn-label">ไปที่หน้าระบบควบคุม iMak CNC</div>
+  </div>
+</div>
+
 
 <h1>Piyawat Zone <br>หลักการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์</h1>
     <div class="video-grid">
@@ -336,9 +438,12 @@
         </div>
       </div>
     </div>
-    <div class="footer">
-      &copy; 2025 Creative Assistant World. All rights reserved.
-    </div>
+   <div class="footer">
+  &copy; 2025 Maker Customs | Powered by iMak CNC OS<br>
+  “สร้างเพื่อให้คนธรรมดาก้าวไกลกว่าที่เคยคิด”<br>
+  <img src="makercustomsos.png" alt="Maker Customs OS" class="footer-logo" />
+</div>
+
   </div>
 </body>
 </html>
