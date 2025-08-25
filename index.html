@@ -32,94 +32,71 @@
       backdrop-filter: blur(8px);
       z-index: 9998;
     }
-
-#splash {
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95vw;
-  max-width: 520px;
-  min-width: 220px;
-  background: linear-gradient(120deg,rgba(30,30,55,0.86) 88%,rgba(25,25,35,0.82));
-  border-radius: 28px;
-  box-shadow: 0 8px 48px #000b, 0 2px 18px #0007;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  z-index: 9999;
-  padding: 46px 0 110px 0;
-  overflow: visible;
-}
-.splash-intro-content {
-  width: 90%;
-  margin: 0 auto;
-  padding: 30px 12px 26px 12px;
-  background: rgba(16,16,28,0.47);
-  color: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 14px #2225;
-  backdrop-filter: blur(2px);
-  max-width: 430px;
-  text-align: center;
-}
-.splash-title {
-  font-size: 1.55rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  letter-spacing: 0.02em;
-  color: #1fa8ff;
-}
-.splash-quote {
-  font-size: 1.13rem;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #fff;
-  font-weight: 400;
-}
-.splash-quote.en {
-  margin-top: 7px;
-  font-size: 1.04rem;
-  font-style: italic;
-  color: #a9eaff;
-  font-weight: 400;
-}
-.splash-title-en {
-  color: #4fc3ff;
-  font-size: 1.12rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-#splash button {
-  position: absolute;
-  left: 50%;
-  bottom: 28px;
-  transform: translateX(-50%);
-  width: 82%;
-  max-width: 330px;
-  padding: 1.08em 0;
-  font-size: 1.12rem;
-  background: #1fa8ff;
-  color: #000;
-  border: none;
-  border-radius: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 10px #0005;
-  z-index: 2;
-  letter-spacing: 0.02em;
-}
-#splash.hidden, #splash-bg.hidden {display: none;}
-@media (max-width: 600px) {
-  #splash {max-width: 99vw; padding: 18px 0 82px 0;}
-  .splash-intro-content {padding: 16px 2vw 13px 2vw;}
-  .splash-title {font-size: 1.14rem;}
-  .splash-quote {font-size: 0.98rem;}
-  .splash-quote.en {font-size: 0.93rem;}
-  #splash button {font-size: 1rem; width: 98%;}
-}
-
-
+    #splash {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95vw;
+      max-width: 520px;
+      background: linear-gradient(120deg,rgba(30,30,55,0.86) 88%,rgba(25,25,35,0.82));
+      border-radius: 28px;
+      box-shadow: 0 8px 48px #000b, 0 2px 18px #0007;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 9999;
+      padding: 46px 12px 110px 12px;
+      text-align: center;
+    }
+    .splash-intro-content {
+      width: 90%;
+      padding: 30px 12px 26px 12px;
+      background: rgba(16,16,28,0.47);
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #2225;
+      backdrop-filter: blur(2px);
+    }
+    .splash-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 0.02em;
+      color: #1fa8ff;
+    }
+    .splash-quote.th {
+      font-size: 1.17rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .splash-quote.en {
+      margin-top: 6px;
+      font-size: 1.06rem;
+      color: #c7e7fa;
+      font-style: italic;
+      line-height: 1.65;
+    }
+    .splash-title-en {
+      font-size: 1.09rem;
+      color: #4fc3ff;
+      font-weight: 600;
+    }
+    #splash button {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      width: 82%;
+      max-width: 330px;
+      padding: 1.08em 0;
+      font-size: 1.12rem;
+      background: #1fa8ff;
+      color: #000;
+      border: none;
+      border-radius: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #splash.hidden, #splash-bg.hidden {display: none;}
     .wrapper {
       width: 100%;
       max-width: 900px;
@@ -129,22 +106,64 @@
     h1 {
       text-align: center;
       font-size: 2.2rem;
-      margin: 32px 0 10px 0;
+      margin: 48px 0 10px 0;
       line-height: 1.2;
+      color: #4fc3ff;
     }
-    p.subtitle {
+    .focus-quote {
       text-align: center;
-      font-size: 1rem;
-      color: #aaa;
-      margin-bottom: 32px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 20px auto 30px auto;
+      padding: 20px;
+      background: rgba(27, 27, 46, 0.5);
+      border-left: 4px solid #1fa8ff;
+      border-radius: 8px;
+    }
+    .custom-buttons {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      margin: 28px 0 48px 0;
+      flex-wrap: wrap;
+    }
+    .custom-btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 140px;
+    }
+    .custom-btn img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 4px 28px 0 rgba(40,180,255,0.25);
+      background: #111a;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 3px solid #1fa8ff;
+    }
+    .custom-btn:hover img {
+      transform: scale(1.07) rotate(-3deg);
+      box-shadow: 0 8px 44px 0 #16d4ff80;
+      border-color: #fff;
+    }
+    .custom-btn-label {
+      margin-top: 8px;
+      font-size: 1.02rem;
+      color: #1fa8ff;
+      text-align: center;
+      background: #071223CC;
+      padding: 3px 8px;
+      border-radius: 8px;
+      width: 100%;
     }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto 32px auto;
+      margin: 0 auto 48px auto;
     }
     .video-card {
       background: #1b1b2e;
@@ -155,22 +174,18 @@
       display: flex;
       flex-direction: column;
     }
-    .video-card:hover {
-      transform: scale(1.03);
-    }
+    .video-card:hover { transform: translateY(-5px); }
     iframe {
       width: 100%;
       aspect-ratio: 16 / 9;
       border: none;
       display: block;
-      background: #222;
     }
     .caption {
       padding: 12px 16px;
       font-size: 1rem;
       color: #eee;
       flex: 1;
-      background: #18182c;
     }
     .caption span {
       font-size: 0.95rem;
@@ -180,148 +195,25 @@
     }
     .footer {
       text-align: center;
-      color: #666;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
+      color: #eee;
+      font-size: 1rem;
+      padding: 2rem 1rem 1.5rem 1rem;
       width: 100%;
     }
-    @media (max-width: 700px) {
-      .wrapper, .video-grid {
-        max-width: 100vw;
-        padding: 0 6px;
-      }
-      h1 {
-        font-size: 1.3rem;
-      }
-      .caption {
-        font-size: 0.98rem;
-        padding: 10px 8px;
-      }
-      .footer {
-        font-size: 0.86rem;
-        padding: 1.5rem 0.2rem;
-      }
+    .footer-logo {
+      margin-top: 18px;
+      max-width: 340px;
+      width: 75vw;
     }
-	
-	.splash-quote.th {
-  font-size: 1.17rem;
-  color: #fff;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  font-weight: 400;
-}
-.splash-quote.en {
-  margin-top: 6px;
-  font-size: 1.06rem;
-  color: #c7e7fa;
-  font-style: italic;
-  line-height: 1.65;
-  font-weight: 400;
-}
-.splash-title-en {
-  font-size: 1.09rem;
-  color: #4fc3ff;
-  font-weight: 600;
-  margin-bottom: 2px;
-  display: inline-block;
-}
-
-.custom-buttons {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 28px 0 18px 0;
-  flex-wrap: wrap;
-}
-.custom-btn-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 140px;
-  min-width: 90px;
-}
-.custom-btn img {
-  display: block;
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  border-radius: 24px;
-  box-shadow: 0 4px 28px 0 rgba(40,180,255,0.25);
-  background: #111a;
-  transition: transform 0.25s, box-shadow 0.25s;
-  border: 3px solid #1fa8ff;
-}
-.custom-btn:hover img, .custom-btn:focus img {
-  transform: scale(1.07) rotate(-3deg);
-  box-shadow: 0 8px 44px 0 #16d4ff80;
-  border-color: #fff;
-}
-.custom-btn-label {
-  margin-top: 8px;
-  font-size: 1.02rem;
-  color: #1fa8ff;
-  text-align: center;
-  letter-spacing: 0.01em;
-  background: #071223CC;
-  padding: 3px 8px;
-  border-radius: 8px;
-  width: 100%;
-}
-@media (max-width: 600px) {
-  .custom-btn img {
-    width: 88px;
-    height: 88px;
-    border-radius: 18px;
-  }
-  .custom-btn-group {
-    width: 100px;
-  }
-  .custom-btn-label {
-    font-size: 0.98rem;
-    padding: 2px 4px;
-  }
-}
-
-.footer {
-  text-align: center;
-  color: #eee;
-  font-size: 1rem;
-  padding: 2rem 1rem 1.5rem 1rem;
-  width: 100%;
-  background: none;
-}
-.footer-logo {
-  margin-top: 18px;
-  max-width: 340px;
-  width: 75vw;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  filter: drop-shadow(0 2px 14px #001244cc);
-}
-@media (max-width: 700px) {
-  .footer {
-    font-size: 0.98rem;
-    padding: 1.5rem 0.3rem 1.2rem 0.3rem;
-  }
-  .footer-logo {
-    max-width: 90vw;
-    margin-top: 10px;
-  }
-}
-
+    @media (max-width: 700px) {
+      h1 { font-size: 1.5rem; }
+      .custom-btn img { width: 100px; height: 100px; }
+    }
   </style>
   <script>
     function enterSite() {
       document.getElementById('splash').classList.add('hidden');
       document.getElementById('splash-bg').classList.add('hidden');
-    }
-    window.onload = function() {
-      if(window.innerWidth > 1024) {
-        document.body.style.zoom = "1";
-      }
     }
   </script>
 </head>
@@ -331,119 +223,168 @@
 <div id="splash">
   <div class="splash-intro-content">
     <div class="splash-title">ยืนบนไหล่ของยักษ์</div>
-  <div class="splash-quote th">
-  “ในโลกจริง ไม่มีอะไรสำเร็จรูป<br>
-  วิดีโอที่คุณจะได้ดู อาจมีเรื่องที่ดูไร้สาระ<br>
-  แต่อยากให้รู้ว่า บางครั้ง<br>
-  ความไร้สาระ คือประตูสู่ปัญญา<br>
-  และสิ่งสำคัญ…<br>
-  มักอยู่ในสิ่งที่ผมไม่ได้พูดออกมา”
-</div>
-<div class="splash-quote en">
-  <span class="splash-title-en">Standing on the Shoulders of Giants</span><br>
-  "In the real world, nothing comes pre-packaged.<br>
-  Some videos here may seem pointless.<br>
-  But sometimes, nonsense is a gateway to wisdom.<br>
-  The most important things...<br>
-  often hide between the lines, in what I don’t say."
-</div>
-
+    <div class="splash-quote th">
+      “ในโลกจริง ไม่มีอะไรสำเร็จรูป<br>
+      วิดีโอที่คุณจะได้ดู อาจมีเรื่องที่ดูไร้สาระ<br>
+      แต่อยากให้รู้ว่า บางครั้ง<br>
+      ความไร้สาระ คือประตูสู่ปัญญา<br>
+      และสิ่งสำคัญ…<br>
+      มักอยู่ในสิ่งที่ผมไม่ได้พูดออกมา”
+    </div>
+    <div class="splash-quote en">
+      <span class="splash-title-en">Standing on the Shoulders of Giants</span><br>
+      "In the real world, nothing comes pre-packaged.<br>
+      Some videos here may seem pointless.<br>
+      But sometimes, nonsense is a gateway to wisdom.<br>
+      The most important things...<br>
+      often hide between the lines, in what I don’t say."
+    </div>
   </div>
   <button onclick="enterSite()">เข้าสู่จักรวาลของผู้สร้าง PiyawatZone</button>
 </div>
 
-
-
-  <div class="wrapper">
-    <h1>ผมยินดีให้คุณ "ยืนบนไหล่ของผม"</h1>
-	  <blockquote class="focus-quote">
+<div class="wrapper">
+  <h1>ผมยินดีให้คุณ "ยืนบนไหล่ของผม"</h1>
+  <blockquote class="focus-quote">
     “<b>การเรียนรู้ที่แท้จริง อยู่ที่เวลา ณ ปัจจุบันขณะ</b><br>
     หมายความว่า คุณอาจเลือกอ่านผ่าน ๆ ดูผ่าน ๆ แล้วสุดท้ายก็ลืม<br>
     หรือคุณจะเลือกตั้งใจและโฟกัสกับสิ่งนั้นจริง ๆ<br><br>
-    สรุปคือ เวลา 5 นาที ในสภาวะที่ต่างกัน<br>
-    ผลลัพธ์ก็ออกมาไม่เหมือนกัน<br>
-    เพราะการดูผ่าน ๆ อาจไม่ได้อะไรเลย<br>
-    แต่ถ้าดูแบบโฟกัส มันไม่ได้แค่ได้ความรู้<br>
+    เวลา 5 นาที ในสภาวะที่ต่างกัน ผลลัพธ์ก็ออกมาไม่เหมือนกัน<br>
+    เพราะการดูผ่าน ๆ อาจไม่ได้อะไรเลย แต่ถ้าดูแบบโฟกัส มันไม่ได้แค่ได้ความรู้<br>
     แต่มันซึมซับเข้าไปข้างใน…จนไม่มีวันลืม”
   </blockquote>
   
-<div class="custom-buttons">
-  <div class="custom-btn-group">
-    <a href="https://piyawat043.github.io/piyawatmaker/" target="_blank" class="custom-btn">
-      <img src="piyawatmic.png" alt="Piyawat Zone" />
-    </a>
-    <div class="custom-btn-label">ไปที่โปรไฟล์ผู้สร้าง</div>
-  </div>
-  <div class="custom-btn-group">
-    <a href="https://piyawat043.github.io/MakerCustoms-CNC-OS/" target="_blank" class="custom-btn">
-      <img src="iMakv5.png" alt="MakerCustoms CNC OS" />
-    </a>
-    <div class="custom-btn-label">ไปที่หน้าระบบควบคุม iMak CNC</div>
-  </div>
-</div>
-
-
-<h1>Piyawat Zone <br>หลักการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์</h1>
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe src="https://youtube.com/embed/f9x59gIhqxU" allowfullscreen></iframe>
-        <div class="caption">
-          piyawat zero1
-          <span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์1</span>
-        </div>
-      </div>
-      <div class="video-card">
-        <iframe src="https://youtube.com/embed/8lnxvYHLKiQ" allowfullscreen></iframe>
-        <div class="caption">
-          piyawat zero2
-          <span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์2</span>
-        </div>
-      </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/lx0-LoN3Xps" allowfullscreen></iframe>
-        <div class="caption">
-           ทำงานต่อจากแกะสลักไฟล์จาก artcam 
-          <span> ทำงานต่อจากแกะสลักไฟล์จาก artcam </span>
-        </div>
-      </div>
-	        <div class="video-card">
-        <iframe src="https://youtube.com/embed/LW416wOpYl8" allowfullscreen></iframe>
-        <div class="caption">
-          แก้ไขชิ้นงาน ESTLCAM
-          <span>แก้ไขชิ้นงาน ESTLCAM</span>
-        </div>
-      </div>
-      <div class="video-card">
-        <iframe src="https://youtube.com/embed/ncs8VpXzwXM" allowfullscreen></iframe>
-        <div class="caption">
-          หัววัดใช้ยังไง...3dprobe cnc
-          <span>หัววัดใช้ยังไง...3dprobe cnc</span>
-        </div>
-      </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/_j2ge1V7mok" allowfullscreen></iframe>
-        <div class="caption">
-          camera การใช้งาน cnc
-          <span>camera การใช้งาน cnc</span>
-        </div>
-      </div>
-	  </div>
-<h1>Dynamic milling <br>เทคโนโลยีการตัดเฉือน</h1>
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe src="https://youtube.com/embed/f9x59gIhqxU" allowfullscreen></iframe>
-        <div class="caption">
-          piyawat zero1
-          <span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์1</span>
-        </div>
-      </div>
+  <div class="custom-buttons">
+    <div class="custom-btn-group">
+      <a href="https://piyawat043.github.io/piyawatmaker/" target="_blank" class="custom-btn">
+        <img src="https://piyawat043.github.io/piyawatmaker/piyawatmic.png" alt="Piyawat Zone" />
+      </a>
+      <div class="custom-btn-label">ไปที่โปรไฟล์ผู้สร้าง</div>
     </div>
-   <div class="footer">
-  &copy; 2025 Maker Customs | Powered by iMak CNC OS<br>
-  “สร้างเพื่อให้คนธรรมดาก้าวไกลกว่าที่เคยคิด”<br>
-  <img src="makercustomsos.png" alt="Maker Customs OS" class="footer-logo" />
-</div>
-
+    <div class="custom-btn-group">
+      <a href="https://piyawat043.github.io/MakerCustoms-CNC-OS/" target="_blank" class="custom-btn">
+        <img src="https://piyawat043.github.io/piyawatmaker/iMakv5.png" alt="MakerCustoms CNC OS" />
+      </a>
+      <div class="custom-btn-label">ไปที่หน้าระบบควบคุม iMak CNC</div>
+    </div>
   </div>
+
+  <!-- ZONE 1 -->
+  <h1>ZONE 1<br>: หลักการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/f9x59gIhqxU" allowfullscreen></iframe>
+      <div class="caption">piyawat zero1<span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์ 1</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/8lnxvYHLKiQ" allowfullscreen></iframe>
+      <div class="caption">piyawat zero2<span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์ 2</span></div>
+    </div>
+  </div>
+
+  <!-- ZONE 1.5 -->
+  <h1>ZONE 1.5<br>: เกี่ยวกับ ESTLCAM การสร้าง GCODE</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/rLbqFzR8im4" allowfullscreen></iframe>
+      <div class="caption">ESTLCAM - EP.1<span>พื้นฐานการใช้งาน</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/1mnTmcRohN0" allowfullscreen></iframe>
+      <div class="caption">Estlcam EP.2<span>Hole และ Stepover</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/Y24JbRfCpJA" allowfullscreen></iframe>
+      <div class="caption">ESTLCAM EP 3<span>การเจาะรู Drill, Helical</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/71a86VqHgGs" allowfullscreen></iframe>
+      <div class="caption">Estlcam - Thread mill<span>การทำเกลียว CNC</span></div>
+    </div>
+  </div>
+
+  <!-- ZONE 2 -->
+  <h1>ZONE 2<br>: ใช้งานระบบหัววัดและกล้อง</h1>
+  <div class="video-grid">
+     <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/6gu6h-NXddk" allowfullscreen></iframe>
+      <div class="caption">ภาพรวมการใช้งานเครื่อง iMak CNC<span></span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ncs8VpXzwXM" allowfullscreen></iframe>
+      <div class="caption">หัววัดใช้ยังไง...3dprobe cnc<span>เรียนรู้การใช้ 3D Probe</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/LXB1eEm4tpM" allowfullscreen></iframe>
+      <div class="caption">หา center วงกลม ด้วยกล้อง<span>Camera CNC Centering</span></div>
+    </div>
+     <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/_j2ge1V7mok" allowfullscreen></iframe>
+      <div class="caption">camera การใช้งาน cnc<span>ภาพรวมการใช้กล้อง CNC</span></div>
+    </div>
+  </div>
+
+  <!-- ZONE 3 -->
+  <h1>ZONE 3<br>: เทคนิคและประสบการณ์ตรง</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/lx0-LoN3Xps" allowfullscreen></iframe>
+      <div class="caption">ทำงานต่อจากไฟล์ artcam<span></span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/LW416wOpYl8" allowfullscreen></iframe>
+      <div class="caption">แก้ไขชิ้นงาน ESTLCAM<span></span></div>
+    </div>
+  </div>
+
+  <!-- ZONE 4 -->
+  <h1>ZONE 4<br>: การเขียนไฟล์ (จากมือสู่ CNC)</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/y1xQFd8KhAc" allowfullscreen></iframe>
+      <div class="caption">ขั้นตอนการเขียนไฟล์ จากมือ สู่ CNC<span>CorelDraw & Estlcam Workflow</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/zmMu7ZT0SAM" allowfullscreen></iframe>
+      <div class="caption">จากมือ สู่ CNC 01<span></span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/rPIT_0MvKgE" allowfullscreen></iframe>
+      <div class="caption">แปลงรูปภาพเป็นเวกเตอร์<span>Image to Vector</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/FkhkOG_cADE" allowfullscreen></iframe>
+      <div class="caption">แปลงเวกเตอร์เป็นรูปภาพ<span>Vector to Image</span></div>
+    </div>
+  </div>
+
+  <!-- ZONE 5 -->
+  <h1>ZONE 5<br>: การสอบเทียบและตั้งค่า</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/Vlp3X6lPjjk" allowfullscreen></iframe>
+      <div class="caption">ระบบจดจำตำแหน่ง Toolsetter<span>One Click Auto Tool Zero</span></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/as1sCokmffI" allowfullscreen></iframe>
+      <div class="caption">ระบบสอบเทียบกึ่งอัตโนมัติ<span>Semi-Auto XYZ Setup</span></div>
+    </div>
+  </div>
+  
+  <!-- ZONE 6 -->
+  <h1>ZONE 6<br>: ความรู้ทั่วไปอุปกรณ์</h1>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/Eyeuy9O7dgY" allowfullscreen></iframe>
+      <div class="caption">ดอกกัด CNC 1 ฟัน<span>Endmill single Flute</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Maker Customs | Powered by iMak CNC OS<br>
+    “สร้างเพื่อให้คนธรรมดาก้าวไกลกว่าที่เคยคิด”<br>
+    <img src="https://piyawat043.github.io/piyawatmaker/makercustomsos.png" alt="Maker Customs OS" class="footer-logo" />
+  </div>
+</div>
 </body>
 </html>
