@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piyawat Zone</title>
   <style>
+    /* General Styles */
     html, body {
       margin: 0;
       padding: 0;
@@ -23,6 +24,8 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+    
+    /* Splash Screen */
     #splash-bg {
       position: fixed;
       inset: 0;
@@ -63,23 +66,9 @@
       letter-spacing: 0.02em;
       color: #1fa8ff;
     }
-    .splash-quote.th {
-      font-size: 1.17rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .splash-quote.en {
-      margin-top: 6px;
-      font-size: 1.06rem;
-      color: #c7e7fa;
-      font-style: italic;
-      line-height: 1.65;
-    }
-    .splash-title-en {
-      font-size: 1.09rem;
-      color: #4fc3ff;
-      font-weight: 600;
-    }
+    .splash-quote.th { font-size: 1.17rem; line-height: 1.7; margin-bottom: 20px; }
+    .splash-quote.en { margin-top: 6px; font-size: 1.06rem; color: #c7e7fa; font-style: italic; line-height: 1.65; }
+    .splash-title-en { font-size: 1.09rem; color: #4fc3ff; font-weight: 600; }
     #splash button {
       position: absolute;
       left: 50%;
@@ -97,6 +86,8 @@
       cursor: pointer;
     }
     #splash.hidden, #splash-bg.hidden {display: none;}
+    
+    /* Main Content */
     .wrapper {
       width: 100%;
       max-width: 900px;
@@ -159,6 +150,8 @@
       border-radius: 8px;
       width: 100%;
     }
+    
+    /* Video Grid & Lazy Loading Styles */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -170,12 +163,54 @@
       border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 0 12px rgba(0, 255, 255, 0.12);
-      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
     }
-    .video-card:hover { transform: translateY(-5px); }
-    iframe {
+    .video-placeholder {
+      position: relative;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+    }
+    .video-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+    .video-placeholder:hover img {
+      transform: scale(1.05);
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    .play-button::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 4px;
+    }
+    .video-placeholder:hover .play-button {
+      background-color: rgba(255, 0, 0, 0.8);
+    }
+    .video-card iframe {
       width: 100%;
       aspect-ratio: 16 / 9;
       border: none;
@@ -193,6 +228,8 @@
       display: block;
       margin-top: 4px;
     }
+    
+    /* Footer */
     .footer {
       text-align: center;
       color: #eee;
@@ -205,17 +242,13 @@
       max-width: 340px;
       width: 75vw;
     }
+    
+    /* Responsive */
     @media (max-width: 700px) {
       h1 { font-size: 1.5rem; }
       .custom-btn img { width: 100px; height: 100px; }
     }
   </style>
-  <script>
-    function enterSite() {
-      document.getElementById('splash').classList.add('hidden');
-      document.getElementById('splash-bg').classList.add('hidden');
-    }
-  </script>
 </head>
 <body>
 
@@ -254,30 +287,22 @@
     แต่มันซึมซับเข้าไปข้างใน…จนไม่มีวันลืม”
   </blockquote>
   
-  <div class="custom-buttons">
-    <div class="custom-btn-group">
-      <a href="https://piyawat043.github.io/piyawatmaker/" target="_blank" class="custom-btn">
-        <img src="https://piyawat043.github.io/piyawatmaker/piyawatmic.png" alt="Piyawat Zone" />
-      </a>
-      <div class="custom-btn-label">ไปที่โปรไฟล์ผู้สร้าง</div>
-    </div>
-    <div class="custom-btn-group">
-      <a href="https://piyawat043.github.io/MakerCustoms-CNC-OS/" target="_blank" class="custom-btn">
-        <img src="https://piyawat043.github.io/piyawatmaker/iMakv5.png" alt="MakerCustoms CNC OS" />
-      </a>
-      <div class="custom-btn-label">ไปที่หน้าระบบควบคุม iMak CNC</div>
-    </div>
-  </div>
 
   <!-- ZONE 1 -->
   <h1>ZONE 1<br>: หลักการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/f9x59gIhqxU" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, 'f9x59gIhqxU')">
+        <img loading="lazy" src="https://img.youtube.com/vi/f9x59gIhqxU/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">piyawat zero1<span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์ 1</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/8lnxvYHLKiQ" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, '8lnxvYHLKiQ')">
+        <img loading="lazy" src="https://img.youtube.com/vi/8lnxvYHLKiQ/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">piyawat zero2<span>กระบวนการออกแบบเพื่อการทำซ้ำอย่างสมบูรณ์ 2</span></div>
     </div>
   </div>
@@ -286,31 +311,52 @@
   <h1>ZONE 1.5<br>: เกี่ยวกับ ESTLCAM การสร้าง GCODE</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/rLbqFzR8im4" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, 'rLbqFzR8im4')">
+        <img loading="lazy" src="https://img.youtube.com/vi/rLbqFzR8im4/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">ESTLCAM - EP.1<span>พื้นฐานการใช้งาน</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/1mnTmcRohN0" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, '1mnTmcRohN0')">
+        <img loading="lazy" src="https://img.youtube.com/vi/1mnTmcRohN0/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">Estlcam EP.2<span>Hole และ Stepover</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/Y24JbRfCpJA" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, 'Y24JbRfCpJA')">
+        <img loading="lazy" src="https://img.youtube.com/vi/Y24JbRfCpJA/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">ESTLCAM EP 3<span>การเจาะรู Drill, Helical</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/71a86VqHgGs" allowfullscreen></iframe>
+      <div class="video-placeholder" onclick="loadVideo(this, '71a86VqHgGs')">
+        <img loading="lazy" src="https://img.youtube.com/vi/71a86VqHgGs/hqdefault.jpg" alt="Thumbnail">
+        <div class="play-button"></div>
+      </div>
       <div class="caption">Estlcam - Thread mill<span>การทำเกลียว CNC</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/BcRT0ysjRxw" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'BcRT0ysjRxw')">
+          <img loading="lazy" src="https://img.youtube.com/vi/BcRT0ysjRxw/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">ESTLCAM<span>ตัด เจาะ ทำเกลียว</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/fHOOdWMcuMk" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'fHOOdWMcuMk')">
+          <img loading="lazy" src="https://img.youtube.com/vi/fHOOdWMcuMk/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">ปาดหน้าทิศทางเดียว<span>ESTLCAM</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/_utdvSuBLjU" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, '_utdvSuBLjU')">
+          <img loading="lazy" src="https://img.youtube.com/vi/_utdvSuBLjU/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">เทคนิคการแกะสลัก STL<span>ESTLCAM</span></div>
     </div>
   </div>
@@ -319,19 +365,31 @@
   <h1>ZONE 1.55<br>: การกัดแบบ Dynamic Trochoidal milling</h1>
   <div class="video-grid">
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/otGOZheNuhU" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'otGOZheNuhU')">
+          <img loading="lazy" src="https://img.youtube.com/vi/otGOZheNuhU/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">Trochoidal milling + Pocket pararel 01<span>ESTLCAM</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/27hSzzFkid8" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, '27hSzzFkid8')">
+          <img loading="lazy" src="https://img.youtube.com/vi/27hSzzFkid8/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">Trochoidal milling + Pocket pararel 02<span>ESTLCAM</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/iS8Hqd9OH1c" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'iS8Hqd9OH1c')">
+          <img loading="lazy" src="https://img.youtube.com/vi/iS8Hqd9OH1c/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">Trochoidal milling + Pocket pararel 03<span>ESTLCAM</span></div>
     </div>
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/bnyq1_7Au6A" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'bnyq1_7Au6A')">
+          <img loading="lazy" src="https://img.youtube.com/vi/bnyq1_7Au6A/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">Cnc 6040 milling steel 20mm!!<span>กัดเหล็ก</span></div>
     </div>
   </div>
@@ -340,7 +398,10 @@
   <h1>ZONE 1.8<br>: โปรแกรม ARTCAM และอื่นๆ</h1>
   <div class="video-grid">
     <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/WT95nif20EE" allowfullscreen></iframe>
+        <div class="video-placeholder" onclick="loadVideo(this, 'WT95nif20EE')">
+          <img loading="lazy" src="https://img.youtube.com/vi/WT95nif20EE/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
         <div class="caption">ป้ายไม้ 3D<span>artcam 2018</span></div>
     </div>
   </div>
@@ -349,24 +410,39 @@
   <h1>ZONE 2<br>: ใช้งานระบบหัววัดและกล้อง</h1>
   <div class="video-grid">
      <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/6gu6h-NXddk" allowfullscreen></iframe>
-      <div class="caption">ภาพรวมการใช้งานเครื่อง iMak CNC<span></span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, '6gu6h-NXddk')">
+          <img loading="lazy" src="https://img.youtube.com/vi/6gu6h-NXddk/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ภาพรวมการใช้งานเครื่อง iMak CNC<span></span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/rf83i_8z8uM" allowfullscreen></iframe>
-      <div class="caption">หัววัดอัตโนมัติ<span>ไม่ต้องหาระนาบเครื่อง!</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'rf83i_8z8uM')">
+          <img loading="lazy" src="https://img.youtube.com/vi/rf83i_8z8uM/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">หัววัดอัตโนมัติ<span>ไม่ต้องหาระนาบเครื่อง!</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/ncs8VpXzwXM" allowfullscreen></iframe>
-      <div class="caption">หัววัดใช้ยังไง...3dprobe cnc<span>เรียนรู้การใช้ 3D Probe</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'ncs8VpXzwXM')">
+          <img loading="lazy" src="https://img.youtube.com/vi/ncs8VpXzwXM/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">หัววัดใช้ยังไง...3dprobe cnc<span>เรียนรู้การใช้ 3D Probe</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/LXB1eEm4tpM" allowfullscreen></iframe>
-      <div class="caption">หา center วงกลม ด้วยกล้อง<span>Camera CNC Centering</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'LXB1eEm4tpM')">
+          <img loading="lazy" src="https://img.youtube.com/vi/LXB1eEm4tpM/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">หา center วงกลม ด้วยกล้อง<span>Camera CNC Centering</span></div>
     </div>
      <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/_j2ge1V7mok" allowfullscreen></iframe>
-      <div class="caption">webcam cnc การทำงานจริง full<span>ภาพรวมการใช้กล้อง CNC</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, '_j2ge1V7mok')">
+          <img loading="lazy" src="https://img.youtube.com/vi/_j2ge1V7mok/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">webcam cnc การทำงานจริง full<span>ภาพรวมการใช้กล้อง CNC</span></div>
     </div>
   </div>
 
@@ -374,12 +450,18 @@
   <h1>ZONE 3<br>: เทคนิคและประสบการณ์ตรง</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/lx0-LoN3Xps" allowfullscreen></iframe>
-      <div class="caption">ทำงานต่อจากไฟล์ artcam<span></span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'lx0-LoN3Xps')">
+          <img loading="lazy" src="https://img.youtube.com/vi/lx0-LoN3Xps/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ทำงานต่อจากไฟล์ artcam<span></span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/LW416wOpYl8" allowfullscreen></iframe>
-      <div class="caption">แก้ไขชิ้นงาน ESTLCAM<span></span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'LW416wOpYl8')">
+          <img loading="lazy" src="https://img.youtube.com/vi/LW416wOpYl8/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">แก้ไขชิ้นงาน ESTLCAM<span></span></div>
     </div>
   </div>
 
@@ -387,20 +469,32 @@
   <h1>ZONE 4<br>: การเขียนไฟล์ (จากมือสู่ CNC)</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/y1xQFd8KhAc" allowfullscreen></iframe>
-      <div class="caption">ขั้นตอนการเขียนไฟล์ จากมือ สู่ CNC<span>CorelDraw & Estlcam Workflow</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'y1xQFd8KhAc')">
+          <img loading="lazy" src="https://img.youtube.com/vi/y1xQFd8KhAc/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ขั้นตอนการเขียนไฟล์ จากมือ สู่ CNC<span>CorelDraw & Estlcam Workflow</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/zmMu7ZT0SAM" allowfullscreen></iframe>
-      <div class="caption">จากมือ สู่ CNC 01<span></span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'zmMu7ZT0SAM')">
+          <img loading="lazy" src="https://img.youtube.com/vi/zmMu7ZT0SAM/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">จากมือ สู่ CNC 01<span></span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/rPIT_0MvKgE" allowfullscreen></iframe>
-      <div class="caption">แปลงรูปภาพเป็นเวกเตอร์<span>Image to Vector</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'rPIT_0MvKgE')">
+          <img loading="lazy" src="https://img.youtube.com/vi/rPIT_0MvKgE/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">แปลงรูปภาพเป็นเวกเตอร์<span>Image to Vector</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/FkhkOG_cADE" allowfullscreen></iframe>
-      <div class="caption">แปลงเวกเตอร์เป็นรูปภาพ<span>Vector to Image</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'FkhkOG_cADE')">
+          <img loading="lazy" src="https://img.youtube.com/vi/FkhkOG_cADE/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">แปลงเวกเตอร์เป็นรูปภาพ<span>Vector to Image</span></div>
     </div>
   </div>
 
@@ -408,12 +502,18 @@
   <h1>ZONE 5<br>: การสอบเทียบและตั้งค่า</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/Vlp3X6lPjjk" allowfullscreen></iframe>
-      <div class="caption">ระบบจดจำตำแหน่ง Toolsetter<span>One Click Auto Tool Zero</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'Vlp3X6lPjjk')">
+          <img loading="lazy" src="https://img.youtube.com/vi/Vlp3X6lPjjk/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ระบบจดจำตำแหน่ง Toolsetter<span>One Click Auto Tool Zero</span></div>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/as1sCokmffI" allowfullscreen></iframe>
-      <div class="caption">ระบบสอบเทียบกึ่งอัตโนมัติ<span>Semi-Auto XYZ Setup</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'as1sCokmffI')">
+          <img loading="lazy" src="https://img.youtube.com/vi/as1sCokmffI/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ระบบสอบเทียบกึ่งอัตโนมัติ<span>Semi-Auto XYZ Setup</span></div>
     </div>
   </div>
   
@@ -421,16 +521,41 @@
   <h1>ZONE 6<br>: ความรู้ทั่วไปอุปกรณ์</h1>
   <div class="video-grid">
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/Eyeuy9O7dgY" allowfullscreen></iframe>
-      <div class="caption">ดอกกัด CNC 1 ฟัน<span>Endmill single Flute</span></div>
+        <div class="video-placeholder" onclick="loadVideo(this, 'Eyeuy9O7dgY')">
+          <img loading="lazy" src="https://img.youtube.com/vi/Eyeuy9O7dgY/hqdefault.jpg" alt="Thumbnail">
+          <div class="play-button"></div>
+        </div>
+        <div class="caption">ดอกกัด CNC 1 ฟัน<span>Endmill single Flute</span></div>
     </div>
   </div>
 
   <div class="footer">
     © 2025 Maker Customs | Powered by iMak CNC OS<br>
     “สร้างเพื่อให้คนธรรมดาก้าวไกลกว่าที่เคยคิด”<br>
-    <img src="https://piyawat043.github.io/piyawatmaker/makercustomsos.png" alt="Maker Customs OS" class="footer-logo" />
+    <img loading="lazy" src="https://piyawat043.github.io/piyawatmaker/makercustomsos.png" alt="Maker Customs OS" class="footer-logo" />
   </div>
 </div>
+
+<script>
+  // Function to enter the site from the splash screen
+  function enterSite() {
+    document.getElementById('splash').classList.add('hidden');
+    document.getElementById('splash-bg').classList.add('hidden');
+  }
+
+  // --- Lazy Loading Function for YouTube Videos ---
+  // This function replaces the placeholder image with the actual YouTube video iframe when clicked.
+  function loadVideo(element, videoId) {
+    const iframe = document.createElement('iframe');
+    // Set attributes for the iframe: src for the video, allowfullscreen, and other permissions for a better experience.
+    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    
+    // Replace the placeholder div with the newly created iframe.
+    element.parentNode.replaceChild(iframe, element);
+  }
+</script>
+
 </body>
 </html>
