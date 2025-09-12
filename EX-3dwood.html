@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือการแกะสลักไม้แบบไม่มีขุย - PiyawatZone</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; box-sizing: border-box; background: #0f0f1a;
+      color: #fff; font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      width: 100%; max-width: 800px; margin: 0 auto; padding: 20px;
+    }
+    h1 {
+      text-align: center; font-size: 2.5rem; color: #f09819; margin-bottom: 10px;
+      text-shadow: 0 0 15px rgba(240, 152, 25, 0.5);
+    }
+    p { font-size: 1.1rem; line-height: 1.8; color: #ccc; }
+    h2 {
+      font-size: 1.8rem; color: #edde5d; border-left: 4px solid #f09819;
+      padding-left: 15px; margin-top: 40px;
+    }
+    ul { list-style: none; padding-left: 20px; }
+    li {
+      font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;
+      padding-left: 25px; position: relative; color: #ccc;
+    }
+    li::before {
+      content: '✓'; position: absolute; left: 0; color: #f09819; font-weight: bold;
+    }
+    .highlight { color: #edde5d; font-weight: bold; }
+    .note {
+      background: rgba(240, 152, 25, 0.1); border: 1px solid #f09819;
+      border-radius: 12px; padding: 20px; margin: 40px 0;
+    }
+    .note strong { font-size: 1.2rem; color: #f09819; display: block; margin-bottom: 10px; }
+    .image-box, .video-box {
+        margin: 30px 0; border-radius: 15px; overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    img { width: 100%; display: block; }
+    iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+    .back-link {
+        display: block; text-align: center; margin-top: 40px;
+        font-size: 1.1rem; color: #1fa8ff; text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    @media (max-width: 700px) {
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>คู่มือการแกะสลักไม้แบบไม่มีขุย</h1>
+
+    <p>เทคนิคนี้...ไม่ได้มาจากตำรา แต่เกิดจากการ “ลองผิด ลองถูก” จริงกับเครื่อง และวัสดุทุกประเภท จนวันนี้ — ผมกล้าพูดได้เลยว่า ถ้าใครทำตามนี้ <strong>จะได้ผลงานเนียน ไม่มีขุย ตั้งแต่ครั้งแรก</strong></p>
+    <p>ไม่ต้องมานั่งขัด ไม่ต้องมาใช้กระดาษทรายแก้หลังงานเสร็จ <strong>คุณจะเห็นผิวที่เรียบแบบลูบแล้วลื่น เหมือนจับไม้จริงที่ถูกขัดมาแล้ว</strong> ทั้งที่มันเพิ่งถูกกัดเสร็จจากเครื่อง CNC</p>
+    
+    <div class="image-box">
+      <img src="https://i.imgur.com/B0sWump.png" alt="ผลงานแกะสลักไม้">
+    </div>
+
+    <h2>องค์ประกอบสำคัญที่ต้อง “เข้าใจ ไม่ใช่แค่ทำตาม”</h2>
+    <ul>
+      <li><strong>Climb Milling:</strong> ถ้าคุณกัดย้อนแบบเดิมๆ = ขุยแน่นอน แต่ถ้าคุณใช้ Climb Milling ผิวมันจะเนียนตั้งแต่รอบแรก รู้สึกได้ตั้งแต่เสียงเครื่องที่เบาลง และงานที่ออกมาแทบไม่มีเศษ</li>
+      <li><strong>ดอก Taper Ballnose:</strong> ดอกนี้เหมือนถูกสร้างมาเพื่อไม้โดยเฉพาะ มันยาวพิเศษ เกลียวสูง ดึงเศษขึ้นด้านบนแทนที่จะปล่อยให้สะสมข้างล่าง คุณจะรู้สึกเลยว่าผิวงาน “คลีนแบบไม่ต้องเก็บ”</li>
+      <li><strong>ArtCAM 2018 + 3D Offset Spiral:</strong> ซอฟต์แวร์นี้ไม่ได้แค่สร้าง G-code แต่มันช่วย “วางทิศทางการกัด” ให้ลื่นไหล Spiral จากศูนย์กลางแล้วขยายออก…คือท่าที่ “เนียนที่สุดเท่าที่เคยใช้มา”</li>
+    </ul>
+
+    <h2>เข้าใจการกัดแบบ Spiral ให้ชัด</h2>
+    <ul>
+      <li>ดอกจะ “เจาะลงตรงกลางก่อน” แล้วค่อยขยายเป็นวงก้นหอยออก วัสดุอ่อนเช่นไม้ พลาสติก MDF = เหมาะสุดๆ</li>
+      <li>หัวกัดหมุน <strong>ตามเข็มนาฬิกา</strong> เป็นมาตรฐาน</li>
+      <li>ถ้าเริ่มจาก<strong>กลาง</strong> → เครื่องจะวิ่ง<strong>ทวนเข็มนาฬิกา</strong> = ชิ้นงานจะอยู่<strong>ด้านขวาของดอก</strong></li>
+      <li>ถ้าเริ่มจาก<strong>นอก</strong> → เครื่องจะวิ่ง<strong>ตามเข็มนาฬิกา</strong> = ชิ้นงานก็อยู่<strong>ด้านขวาของดอก</strong> เช่นกัน</li>
+      <li><span class="highlight">จำไว้ว่า “ทิศทาง” ส่งผลต่อผิวงานชัดเจน</span></li>
+    </ul>
+
+    <div class="note">
+      ✳️ <strong>ฟีลลิ่งของผม:</strong><br>
+      เวลาที่งานกัดเสร็จแล้วคุณเอานิ้วลูบผ่านชิ้นไม้ มันไม่มีขุยเลย... มันรู้สึกเหมือนเรา "ควบคุมเครื่องด้วยความเข้าใจจริงๆ" ไม่ใช่แค่สั่งให้มันกัดไปเฉยๆ — แต่กัดอย่าง “มีศิลปะ”
+    </div>
+
+    <h2>วิดีโอสาธิต:</h2>
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/WT95nif20EE" allowfullscreen></iframe>
+    </div>
+    <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/hB1wFTtw5eY" allowfullscreen></iframe>
+    </div>
+     <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/_0i4ERM4b_k" allowfullscreen></iframe>
+    </div>
+
+    <a href="piyawat-zone.html" class="back-link">&larr; กลับสู่ PiyawatZone</a>
+  </div>
+</body>
+</html>

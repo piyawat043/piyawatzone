@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางข้อมูลเกลียวท่อ BSP (British Standard Pipe)</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using the 'Sarabun' font for better Thai character display -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Style for table header */
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #f3f4f6; /* A light gray background */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden">
+            <div class="p-6 bg-blue-600 text-white">
+                <h1 class="text-2xl sm:text-3xl font-bold">ตารางข้อมูลเกลียวท่อ BSP (British Standard Pipe) ฉบับสมบูรณ์</h1>
+                <p class="mt-2 text-blue-100">ข้อมูลสำหรับงานวัดขนาด, งานเจาะต๊าป และการตั้งค่าเครื่องจักร CNC</p>
+            </div>
+
+            <!-- This container makes the table scrollable on small screens -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-700">
+                    <thead class="text-xs text-gray-800 uppercase bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap">ขนาดเกลียว<br>(Nominal Size)</th>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap">TPI<br>(เกลียวต่อนิ้ว)</th>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap text-red-600 font-bold">Pitch (mm)<br>(ระยะห่างเกลียว)</th>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap">โตนอก (mm)<br>(Major Diameter)</th>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap">ดอกสว่านนำ (mm)<br>(Tap Drill Size)</th>
+                            <th scope="col" class="px-4 py-3 whitespace-nowrap text-red-600 font-bold">สูง/ลึก (mm)<br>(Thread Height)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data Rows -->
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1/8"</td>
+                            <td class="px-4 py-4 text-center">28</td>
+                            <td class="px-4 py-4 text-center font-semibold">0.907</td>
+                            <td class="px-4 py-4 text-center">9.73</td>
+                            <td class="px-4 py-4 text-center">8.8</td>
+                            <td class="px-4 py-4 text-center font-semibold">0.581</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1/4"</td>
+                            <td class="px-4 py-4 text-center">19</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.337</td>
+                            <td class="px-4 py-4 text-center">13.16</td>
+                            <td class="px-4 py-4 text-center">11.8</td>
+                            <td class="px-4 py-4 text-center font-semibold">0.856</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 3/8"</td>
+                            <td class="px-4 py-4 text-center">19</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.337</td>
+                            <td class="px-4 py-4 text-center">16.66</td>
+                            <td class="px-4 py-4 text-center">15.25</td>
+                            <td class="px-4 py-4 text-center font-semibold">0.856</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1/2"</td>
+                            <td class="px-4 py-4 text-center">14</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.814</td>
+                            <td class="px-4 py-4 text-center">20.95</td>
+                            <td class="px-4 py-4 text-center">19.0</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.162</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 5/8"</td>
+                            <td class="px-4 py-4 text-center">14</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.814</td>
+                            <td class="px-4 py-4 text-center">22.91</td>
+                            <td class="px-4 py-4 text-center">21.0</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.162</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 3/4"</td>
+                            <td class="px-4 py-4 text-center">14</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.814</td>
+                            <td class="px-4 py-4 text-center">26.44</td>
+                            <td class="px-4 py-4 text-center">24.5</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.162</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1"</td>
+                            <td class="px-4 py-4 text-center">11</td>
+                            <td class="px-4 py-4 text-center font-semibold">2.309</td>
+                            <td class="px-4 py-4 text-center">33.25</td>
+                            <td class="px-4 py-4 text-center">30.75</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.479</td>
+                        </tr>
+                         <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1 1/4"</td>
+                            <td class="px-4 py-4 text-center">11</td>
+                            <td class="px-4 py-4 text-center font-semibold">2.309</td>
+                            <td class="px-4 py-4 text-center">41.91</td>
+                            <td class="px-4 py-4 text-center">39.25</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.479</td>
+                        </tr>
+                         <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 1 1/2"</td>
+                            <td class="px-4 py-4 text-center">11</td>
+                            <td class="px-4 py-4 text-center font-semibold">2.309</td>
+                            <td class="px-4 py-4 text-center">47.80</td>
+                            <td class="px-4 py-4 text-center">45.25</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.479</td>
+                        </tr>
+                         <tr class="bg-gray-50 border-b hover:bg-gray-100">
+                            <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">G 2"</td>
+                            <td class="px-4 py-4 text-center">11</td>
+                            <td class="px-4 py-4 text-center font-semibold">2.309</td>
+                            <td class="px-4 py-4 text-center">59.61</td>
+                            <td class="px-4 py-4 text-center">57.0</td>
+                            <td class="px-4 py-4 text-center font-semibold">1.479</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 bg-gray-50 text-xs text-gray-600 border-t">
+                <p><span class="font-bold text-red-600">หมายเหตุ:</span> ค่า <span class="font-semibold">Pitch</span> และ <span class="font-semibold">Thread Height</span> เป็นค่าสำคัญสำหรับโปรแกรมกัดเกลียว (Thread Machining)</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
